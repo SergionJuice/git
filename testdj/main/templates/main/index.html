@@ -1,11 +1,22 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Главная страница
+{{ title }}
 {% endblock %}
 
 
 {% block content %}
     <h1>Главная страница</h1>
+{% if tasks %}
+    {% for element in tasks %}
+        <div class="alert alert-warning mt-2">
+            <h3>{{ element.title }}</h3>
+            <h2>{{element.adress}}</h2>
+            <p>{{element.task}}</p>
+        </div>
+    {% endfor %}
+{% else %}
+        <p>У нас нет заявок!</p>
+{% endif %}
     <p>Приветсвуем вас, на портале технической поддержки!</p>
 {% endblock %}

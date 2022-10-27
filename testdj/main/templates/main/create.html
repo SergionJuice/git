@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Создать заявку
+{% endblock %}
+
+
+{% block content %}
+    <h1>Создать заявку</h1>
+    <form method="post">
+        <input  type="text" placeholder="Введите свою проблему" class ="form-control"><br>
+        <select name="Выберите корпус" required="required" class ="form-control">
+            <option value="">Выберите здание школы</option>
+            <option value="1">ШО1</option>
+            <option value="2">ШО2</option>
+            <option value="8">ШО8</option>
+            <option value="16">ШО16</option>
+          </select><br>
+        <textarea placeholder="Введите описание" class ="form-control"></textarea><br>
+        <button type="submit" class="btn btn-success" >Добавить</button>
+    </form>
+{% endblock %}

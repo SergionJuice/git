@@ -15,8 +15,9 @@
           </a>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
-            <li><a href="/about" class="nav-link px-2 link-dark">Про нас</a></li>
+            <li><a href="{% url 'home' %}" class="nav-link px-2 link-secondary">Главная</a></li>
+            <li><a href="{% url 'about' %}" class="nav-link px-2 link-dark">Про нас</a></li>
+            <li><a href="{% url 'create' %}" class="nav-link px-2 link-dark">Создать заявку</a></li>
             <!-- <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">About</a></li> -->
@@ -26,6 +27,10 @@
           </div>
         </header>
       </div>
-      {% block content %}{% endblock %}
+      
+<div class="container">
+  {% block content %}{% endblock %}  
+</div>
+
 </body>
 </html>
