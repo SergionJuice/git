@@ -5,12 +5,13 @@ from django.db import models
 class Task(models.Model):
     title = models.CharField('Название', max_length = 50)
     ADRESS = (
-        ('1', 'ШО1'),
-        ('2', 'ШО2'),
-        ('8', 'ШО8'),
-        ('16', 'ШО16'),
+        ('ШО1', 'ШО1'),
+        ('ШО2', 'ШО2'),
+        ('ШО8', 'ШО8'),
+        ('ШО16', 'ШО16'),
     )
     adress = models.CharField('Корпус',max_length=4, choices=ADRESS)
+    kabinet = models.IntegerField('Введите кабинет')
     task = models.TextField('Описание')
 
     def __str__(self):
