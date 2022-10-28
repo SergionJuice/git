@@ -9,11 +9,11 @@
     <h1>Создать заявку</h1>
     <form method="post">
         {% csrf_token %}
-        {{form.title}}
-        {{form.adress}}
-        {{form.kabinet}}
-        {{form.task}}
-        <input  type="text" placeholder="Введите свою проблему" class ="form-control"><br>
+        {{form.title}} <br>
+        {{form.adress}} <br>
+        {{form.kabinet}} <br>
+        {{form.task}} <br>
+        <!-- <input  type="text" placeholder="Введите свою проблему" class ="form-control"><br>
         <select name="Выберите корпус" required="required" class ="form-control">
             <option value="">Выберите здание школы</option>
             <option value="1">ШО1</option>
@@ -23,6 +23,6 @@
           </select><br>
         <input  type="number" placeholder="Кабинет" class ="form-control" max="339" required="required"> <br>
         <textarea placeholder="Введите описание" class ="form-control"></textarea><br>
-        <button type="submit" class="btn btn-success" >Добавить</button><br>
+        <button type="submit" class="btn btn-success" >Добавить</button><br> -->
     </form>
 {% endblock %}

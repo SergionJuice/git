@@ -13,7 +13,7 @@ def about(request):
     return render (request, 'main/about.html')
 
 def create(request):
-    form = TaskForm
+    form = TaskForm()
     context = {
         'form': form
     }
