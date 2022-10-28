@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from git.testdj.main.forms import TaskForm
+from .forms import TaskForm
 from .models import Task
 # Create your views here.
 
