@@ -1,3 +1,4 @@
+from secrets import choice
 from django.db import models
 
 # Create your models here.
@@ -10,7 +11,8 @@ class Task(models.Model):
         ('ШО8', 'ШО8'),
         ('ШО16', 'ШО16'),
     )
-    adress = models.CharField('Корпус',max_length=4, choices=ADRESS)
+    blank_choice = (('', 'Выберите корпус'),)
+    adress = models.CharField('Корпус',max_length=4,choices=blank_choice + ADRESS)
     kabinet = models.IntegerField('Введите кабинет')
     task = models.TextField('Описание')
 
