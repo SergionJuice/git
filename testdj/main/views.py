@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from git.testdj.main.forms import TaskForm
 from .models import Task
 # Create your views here.
 
@@ -11,4 +13,8 @@ def about(request):
     return render (request, 'main/about.html')
 
 def create(request):
-    return render (request, 'main/create.html')
+    form = TaskForm
+    context = {
+        'form': form
+    }
+    return render (request, 'main/create.html',context)

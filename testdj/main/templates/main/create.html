@@ -8,6 +8,11 @@
 {% block content %}
     <h1>Создать заявку</h1>
     <form method="post">
+        {% csrf_token %}
+        {{form.title}}
+        {{form.adress}}
+        {{form.kabinet}}
+        {{form.task}}
         <input  type="text" placeholder="Введите свою проблему" class ="form-control"><br>
         <select name="Выберите корпус" required="required" class ="form-control">
             <option value="">Выберите здание школы</option>
