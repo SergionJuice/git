@@ -1,4 +1,4 @@
-from secrets import choice
+from random import choices
 from django.db import models
 
 # Create your models here.
@@ -15,7 +15,15 @@ class Task(models.Model):
     adress = models.CharField('Корпус',max_length=4,choices=blank_choice + ADRESS)
     kabinet = models.IntegerField('Введите кабинет')
     task = models.TextField('Описание')
-
+    
+    SOTRUDNIK = (
+        ('AA', 'Артем Андреевич'),
+        ('YI', 'Ярослав Игоревич'),
+        ('SV', 'Сергей Викторович'),
+        ('NO', 'Никита Олегович'),
+    )
+    sotrudnik_choice = (('', 'Выберите сотрудника'),)
+    sotrudnik = models.CharField('Сотрудник',max_length=2,choices=sotrudnik_choice + SOTRUDNIK)
     def __str__(self):
         return self.title
 

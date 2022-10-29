@@ -6,7 +6,7 @@ from django.forms import ModelForm, TextInput, Textarea,IntegerField, CharField,
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        fields = ["title","adress","kabinet","task"]
+        fields = ["title","adress","kabinet","task","sotrudnik"]
         # def __init__(self, *args, **kwargs):
         #     super().__init__(*args, **kwargs)
         #     #for field in self.fields:
@@ -45,4 +45,11 @@ class TaskForm(ModelForm):
                 'class' : 'form-control',
                 'placeholder' : 'Введите описание проблемы'
             }),
+            "sotrudnik": Select(
+                 attrs={
+                  'name' : 'Желаемый сотрудник',
+                  'required' : 'required',
+                  'class' : 'form-control'
+             }
+            ),
         }
