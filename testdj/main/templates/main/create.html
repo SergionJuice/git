@@ -9,6 +9,7 @@
     <h1>Создать заявку</h1>
     <form method="post">
         {% csrf_token %}
+        {{form.kat }} <br>
         {{form.title}} <br>
         {{form.adress}} <br>
         {{form.kabinet}} <br>

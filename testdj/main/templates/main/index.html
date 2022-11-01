@@ -10,6 +10,7 @@
 {% if tasks %}
     {% for element in tasks %}
         <div class="alert alert-warning mt-2">
+            <h3>{{ element.kat }}</h3>
             <h3>{{ element.title }}</h3>
             <h2>{{element.adress}}</h2>
             <h2>{{element.kabinet}}</h2>

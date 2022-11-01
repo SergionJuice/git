@@ -1,9 +1,11 @@
+from logging import PlaceHolder
 from random import choices
 from django.db import models
 
 # Create your models here.
 
 class Task(models.Model):
+    kat = models.ForeignKey('Kategoria', on_delete=models.PROTECT,null=False)
     title = models.CharField('Название', max_length = 50)
     ADRESS = (
         ('ШО1', 'ШО1'),
@@ -30,3 +32,19 @@ class Task(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
+
+
+class Kategoria(models.Model):
+    KATEGORIA =(
+        ('Замена Картриджа','Замена Картриджа'),
+        ('Устранение неполадок с техникой','Устранение неполадок с техникой'),
+        ('Выдача оборудования','Выдача оборудования'),
+        ('Другое','Другое'),
+    )
+    kategoria_choice = (('', 'Выберите категорию обращения'),)
+    kategoria = models.CharField('Категория',max_length=50,choices=kategoria_choice + KATEGORIA, db_index=True)
+    def __str__(self):
+        return self.kategoria
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'

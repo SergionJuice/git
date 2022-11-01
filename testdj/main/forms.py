@@ -1,12 +1,13 @@
 from dataclasses import field
 from distutils.text_file import TextFile
+from ssl import Options
 from .models import Task
 from django.forms import ModelForm, TextInput, Textarea,IntegerField, CharField, Select
 
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        fields = ["title","adress","kabinet","task","sotrudnik"]
+        fields = ["kat","title","adress","kabinet","task","sotrudnik"]
         # def __init__(self, *args, **kwargs):
         #     super().__init__(*args, **kwargs)
         #     #for field in self.fields:
@@ -20,6 +21,12 @@ class TaskForm(ModelForm):
 
 
         widgets = {
+            "kat" : Select(attrs={
+                'name' : 'Категория',
+                'required' : 'required',
+                'class' : 'form-control select',
+            })
+            ,
             "title": TextInput(attrs={
                 'class' : 'form-control',
                 'placeholder' : 'Введите свою проблему'

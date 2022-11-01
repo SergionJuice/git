@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 
 from .forms import TaskForm
-from .models import Task
+from .models import *
 # Create your views here.
 
 
@@ -20,7 +20,7 @@ def create(request):
             form.save()
             return redirect('home')
         else:
-            error = 'Форма заполнена некорректно'
+            error = 'Форма заполнена некорректно!'
 
 
 
