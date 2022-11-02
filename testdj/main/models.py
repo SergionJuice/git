@@ -12,7 +12,7 @@ from django.conf import settings
 
 
 class Task(models.Model):
-    kat = models.ForeignKey('Kategoria', on_delete=models.PROTECT, choices = settings.KATEGORIA)
+    kat = models.ForeignKey('Kategoria', on_delete=models.PROTECT)
     ADRESS = (
         ('ШО1', 'ШО1'),
         ('ШО2', 'ШО2'),
@@ -40,13 +40,8 @@ class Task(models.Model):
         verbose_name_plural = 'Заявки'
 
 class Kategoria(models.Model):
-    KATEGORIA =(
-        ('','Выберите категорию'),
-        ('Замена Картриджа','Замена Картриджа'),
-        ('Устранение неполадок с техникой','Устранение неполадок с техникой'),
-        ('Выдача оборудования','Выдача оборудования'),
-        ('Другое','Другое'),
-    )
+
+    
     kategoria = models.CharField('Категория',max_length=50,choices=settings.KATEGORIA, db_index=True)
     def __str__(self):
         return self.kategoria
