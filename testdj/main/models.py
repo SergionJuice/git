@@ -1,12 +1,18 @@
+from email.policy import default
 from logging import PlaceHolder
 from random import choices
+from tkinter.tix import Select
+from typing import Any
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
+
+
+
 class Task(models.Model):
-    kat = models.ForeignKey('Kategoria', on_delete=models.PROTECT,null=False)
-    title = models.CharField('Название', max_length = 50)
+    kat = models.ForeignKey('Kategoria', on_delete=models.PROTECT, choices = settings.KATEGORIA)
     ADRESS = (
         ('ШО1', 'ШО1'),
         ('ШО2', 'ШО2'),
@@ -27,24 +33,24 @@ class Task(models.Model):
     sotrudnik_choice = (('', 'Выберите сотрудника'),)
     sotrudnik = models.CharField('Сотрудник',max_length=2,choices=sotrudnik_choice + SOTRUDNIK)
     def __str__(self):
-        return self.title
+        return self.task
 
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
 
-
 class Kategoria(models.Model):
     KATEGORIA =(
+        ('','Выберите категорию'),
         ('Замена Картриджа','Замена Картриджа'),
         ('Устранение неполадок с техникой','Устранение неполадок с техникой'),
         ('Выдача оборудования','Выдача оборудования'),
         ('Другое','Другое'),
     )
-    kategoria_choice = (('', 'Выберите категорию обращения'),)
-    kategoria = models.CharField('Категория',max_length=50,choices=kategoria_choice + KATEGORIA, db_index=True)
+    kategoria = models.CharField('Категория',max_length=50,choices=settings.KATEGORIA, db_index=True)
     def __str__(self):
         return self.kategoria
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
