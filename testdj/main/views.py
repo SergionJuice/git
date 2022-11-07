@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from .forms import TaskForm
 from .models import *
+from django.contrib.auth import logout
 # Create your views here.
 
 
@@ -34,9 +35,6 @@ def create(request):
     }
     return render (request, 'main/create.html',context)
 
-def authorization (request):
-    form_class = AuthenticationForm
-    
-    return render(request, 'main/authorization.html')
-
-
+def logout_user(request):
+    logout(request)
+    return redirect ('home')

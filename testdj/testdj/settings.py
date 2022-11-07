@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "main",
 	"users.apps.UsersConfig",
 	"crispy_forms",
+    "accounts",
 ]
 
 
@@ -129,3 +130,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL =  '/'

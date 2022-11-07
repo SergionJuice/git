@@ -7,8 +7,9 @@
 
 {% block content %}
     <h1>Главная страница</h1>
-{% if tasks %}
-    {% for element in tasks %}
+{% if request.user.is_authenticated %}
+    {% if tasks %}
+        {% for element in tasks %}
         <div class="alert alert-warning mt-2">
             <h3>{{ element.kat }}</h3>
             <h3>{{ element.title }}</h3>
@@ -17,9 +18,14 @@
             <p>{{element.task}}</p>
             <p>Желаемый сотрудник:{{element.sotrudnik}}</p>
         </div>
-    {% endfor %}
-{% else %}
+        {% endfor %}
+    {% else %}
         <p>У нас нет заявок!</p>
+    {% endif %}
+{% else %}
+<p>Приветсвуем вас, на портале технической поддержки!</p>
+<p>Вы не вошли в систему!</p>
 {% endif %}
-    <p>Приветсвуем вас, на портале технической поддержки!</p>
+
+    
 {% endblock %}
