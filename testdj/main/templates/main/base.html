@@ -13,17 +13,26 @@
           <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
           </a>
-    
+          
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="{% url 'home' %}" class="nav-link px-2 link-secondary">Главная</a></li>
             <li><a href="{% url 'about' %}" class="nav-link px-2 link-dark">Про нас</a></li>
             <li><a href="{% url 'create' %}" class="nav-link px-2 link-dark">Создать заявку</a></li>
+
+            
             <!-- <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">About</a></li> -->
           </ul> 
-    
           <div class="col-md-3 text-end">
+      
+            <a href="{% url 'authorization' %}" type="button" class="btn btn-outline-primary me-2">
+              Войти
+            </a>
+            
+            <a href="{% url 'register' %}" type="button" class="btn btn-outline-primary me-2">
+              Регистрация
+            </a>
           </div>
         </header>
       </div>
@@ -34,3 +43,5 @@
 
 </body>
 </html>
+
+

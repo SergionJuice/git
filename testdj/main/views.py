@@ -1,8 +1,11 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm
 
 from .forms import TaskForm
 from .models import *
 # Create your views here.
+
 
 
 def index(request):
@@ -30,3 +33,10 @@ def create(request):
         'error': error
     }
     return render (request, 'main/create.html',context)
+
+def authorization (request):
+    form_class = AuthenticationForm
+    
+    return render(request, 'main/authorization.html')
+
+
