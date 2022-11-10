@@ -4,6 +4,11 @@ from ssl import Options
 from .models import Kategoria, Task
 from django.forms import ModelForm, TextInput, Textarea,IntegerField, CharField, Select
 
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+
+
 class TaskForm(ModelForm):
     class Meta:
         model = Task
@@ -56,3 +61,9 @@ class TaskForm(ModelForm):
              }
             ),
         }
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username','first_name', 'last_name', 'email', 'password1', 'password2']

@@ -5,6 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import TaskForm
 from .models import *
 from django.contrib.auth import logout
+
+from .forms import UserRegisterForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -38,4 +42,28 @@ def create(request):
 def logout_user(request):
     logout(request)
     return redirect ('home')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Ваш аккаунт создан: можно войти на сайт.')
+            return redirect('home')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'main/register.html', {'form': form})
+
+
+
+
+@login_required
+def profile(request):
+    return render(request, 'main/profile.html')
+
+
+
+     
+
 
